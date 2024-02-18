@@ -29,5 +29,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Generate JaCoCo Badge
+    - name: Generate JaCoCo badge
       uses: cicirello/jacoco-badge-generator@v2
+    - name: Upload coverage badge
+      if: ${{ hashFiles('.github/badges') != '' }}
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        clean: true
+        folder: '.github/badges'
+        target-folder: 'badges'
