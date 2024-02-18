@@ -31,10 +31,15 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Generate JaCoCo badge
       uses: cicirello/jacoco-badge-generator@v2
+      with:
+        badges-directory: badges
+        coverage-badge-filename: instructions.svg
+        generate-branches-badge: true
+        branches-badge-filename: branches.svg
     - name: Upload coverage badge
-      if: ${{ hashFiles('.github/badges') != '' }}
+      if: ${{ hashFiles('badges') != '' }}
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         clean: true
-        folder: '.github/badges'
+        folder: 'badges'
         target-folder: 'badges'
