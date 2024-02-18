@@ -34,8 +34,11 @@ jobs:
       with:
         badges-directory: badges
         coverage-badge-filename: instructions.svg
+        coverage-label: 'Coverage:instructions'
         generate-branches-badge: true
         branches-badge-filename: branches.svg
+        branches-label: 'Coverage:branches'
+        on-missing-report: quiet
     - name: Upload coverage badge
       if: ${{ hashFiles('badges') != '' }}
       uses: JamesIves/github-pages-deploy-action@v4
