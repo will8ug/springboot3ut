@@ -11,11 +11,17 @@ public class PropertySourceResolver {
     @Value("${components.secondProperty}")
     private String secondProperty;
 
+    private String thirdProperty = "DefaultValue";
+
     public String getFirstProperty() {
         return firstProperty;
     }
 
     public String getSecondProperty() {
         return secondProperty;
+    }
+
+    public String getThirdProperty() {
+        return thirdProperty;
     }
 }
